@@ -1,0 +1,16 @@
+kind: dataPipeline
+name: hl7elastic
+description: HL7 to Elastic
+project: hl7
+input:
+  categorySelectors:
+    Data Type:
+    - hl7
+functions:
+- name: debug_out
+  args: {}
+output:
+  localEdge:
+    type: Connector
+    service: esconnectorinstance
+    endpointName: es-stream-out

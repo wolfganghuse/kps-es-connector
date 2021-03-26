@@ -2,10 +2,10 @@ SHELL := /usr/bin/env bash -o pipefail
 
 # TODO: Replace with the actual connector name
 # This controls the location of the cache.
-PROJECT := kps-hl7-connector
+PROJECT := kps-es-connector
 
 # TODO: Replace with the actual connector name
-export CONNECTOR_NAME := hl7connector
+export CONNECTOR_NAME := esconnector
 
 # TODO: Replace with the docker image tag
 TAG=develop

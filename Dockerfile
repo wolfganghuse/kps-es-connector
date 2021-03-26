@@ -2,7 +2,7 @@
 
 FROM golang:latest as build
 
-ARG connector_name=kps-connector-template
+ARG connector_name=kps-es-connector
 
 WORKDIR /go/src/$connector_name
 COPY . .
@@ -12,7 +12,7 @@ RUN go build -o $connector_name
 
 FROM golang:latest
 
-ARG connector_name=kps-connector-template
+ARG connector_name=kps-es-connector
 RUN mkdir -p /connectors/bin
 
 RUN apt update -y

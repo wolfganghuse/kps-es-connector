@@ -1,0 +1,40 @@
+{
+  "name": "esconnector",
+  "description": "This is a class definition of ElasticSearch data connector.",
+  "connectorVersion": "1.0",
+  "minSvcDomainVersion": "2.3.0",
+  "type": "EGRESS",
+  "staticParameterSchema": {
+    "type": "object",
+    "properties": {
+      "image_tag": {
+        "type": "string",
+        "description": "test docker image tag to render in yaml"
+      }
+    }
+  },
+  "configParameterSchema": {
+    "type": "object",
+    "properties": {
+      "log_level": {
+        "type": "string",
+        "description": "connector docker container log level"
+      }
+    }
+  },
+  "streamParameterSchema": {
+    "type": "object",
+    "description": "Stream schema",
+    "properties": {
+      "index": {
+        "type": "string",
+        "description": "Index to emit the messages to"
+      },
+      "instance": {
+        "type": "string",
+        "description": "address:port of the ElasticSearch Instance to write to"
+      }
+    }
+  },
+  "yamlData": "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: esconnector\nspec:\n  replicas: 1\n  selector:\n    matchLabels:\n      app: esconnector\n  template:\n    metadata:\n      name: esconnector\n      labels:\n        app: esconnector\n    spec:\n      containers:\n        - name: esconnector\n          image: \"wolfganghuse/esconnector:{{ .Parameters.image_tag }}\"\n          imagePullPolicy: Always\n          ports:\n            - containerPort: 8000\n---\nkind: Service\napiVersion: v1\nmetadata:\n  name: esconnector-svc\nspec:\n  selector:\n    app: esconnector\n  ports:\n    - protocol: TCP\n      name: esconnector\n      port: 9000\n      targetPort: 8000\n"
+}

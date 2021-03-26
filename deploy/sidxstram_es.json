@@ -1,0 +1,13 @@
+{
+   "name": "es-stream-out",
+   "ConnectorInstanceID": "d8116502-a4a1-4784-92c5-c79ced7afd83",
+   "labels": [],
+   "direction": "EGRESS",
+   "serviceDomainIds": [
+     "7178fa78-ff63-48f8-9269-d38f45a691fa"
+   ],
+   "stream": {
+     "index": "my_index",
+     "instance": "http://elasticsearch:9200"
+   }
+ }

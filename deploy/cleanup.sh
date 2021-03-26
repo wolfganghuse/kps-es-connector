@@ -1,3 +1,3 @@
-./kps delete connectorstream -i hl7connector hl7-stream-in
-./kps delete connectorinstance hl7connector
-./kps delete connectorclass hl7connector
+./kps delete connectorstream -i esconnectorinstance es-stream-out
+./kps delete connectorinstance esconnectorinstance
+./kps delete connectorclass esconnector
