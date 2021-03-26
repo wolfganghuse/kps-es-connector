@@ -1,0 +1,8 @@
+{
+  "name": "hl7connector",
+  "description": "This is a dynamic config for hl7 connector instance",
+  "connectorInstanceID": "6a4a1bd1-68e1-409e-afb1-c8fa66ff21ce",
+  "config": {
+    "log_level": "INFO"
+  }
+}
